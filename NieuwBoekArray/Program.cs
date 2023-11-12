@@ -31,8 +31,9 @@ class Program
         LeenBoekUit(boekTitels, boekUitgeleend, boekGebruiker, boektitle2, "user9");
 
         ToonUitgeleendeBoeken(boekTitels, boekUitgeleend, boekGebruiker);
-        VerwijderBoek(boekTitels, boektitle2);
+        VerwijderBoek(boekTitels, boektitle5);
         ToonBeschikbareBoeken(boekTitels, boekUitgeleend);
+        ToonUsersUitgeleendeBoeken(boekTitels, boekUitgeleend, boekGebruiker);
     }
 
     static void ToonAlleBoeken(string[] books)
@@ -60,7 +61,7 @@ class Program
 
         for (int i = 0; i < titels.Length; i++)
         {
-            if (!uitgeleend[i])
+            if (!uitgeleend[i] && titels[i]  != "Deleted" )
             {
                 Console.WriteLine(titels[i]);
                 isErEenBeschikbaarBoek = true;
@@ -134,7 +135,33 @@ class Program
         }
 
         Console.WriteLine($"Boek {boekTitel} niet gevonden.");
-    }   
+    }
+
+    static void ToonUsersUitgeleendeBoeken(string[] titels, bool[] uitgeleend, string[] gebruikers)
+    {
+        Console.WriteLine();
+        Console.WriteLine("druk enter om verder te gaan");
+        Console.ReadLine();
+        Console.WriteLine(lijn);
+        Console.WriteLine(" *** Users dat hebben boeken Uitgeleend ***");
+        Console.WriteLine(lijn);
+        bool isErEenUitgeleendBoek = false;
+
+        for (int i = 0; i < uitgeleend.Length; i++)
+        {
+            if (uitgeleend[i])
+            {
+                Console.WriteLine($"{gebruikers[i]} heeft '{titels[i]}' uitgeleend.");
+                isErEenUitgeleendBoek = true;
+            }
+        }
+
+        if (!isErEenUitgeleendBoek)
+        {
+            Console.WriteLine("Er zijn momenteel geen uitgeleende boeken.");
+        }
+    }
+
 
 
 }
