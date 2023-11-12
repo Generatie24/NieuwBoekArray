@@ -50,6 +50,9 @@ class Program
     }
     static void ToonBeschikbareBoeken(string[] titels, bool[] uitgeleend)
     {
+        Console.WriteLine();
+        Console.WriteLine("druk enter om verder te gaan");
+        Console.ReadLine();
         Console.WriteLine(lijn);
         Console.WriteLine("*** Beschikbare Boeken ***");
         Console.WriteLine(lijn);
@@ -89,11 +92,15 @@ class Program
             }
         }
         Console.WriteLine(lijn);
+        Console.WriteLine($"Boek '{boekTitel}' is uitgeleend aan de user {gebruiker}");
         Console.WriteLine($"Boek '{boekTitel}' is niet beschikbaar.");
     }
 
     static void ToonUitgeleendeBoeken(string[] titels, bool[] uitgeleend, string[] gebruikers)
     {
+        Console.WriteLine();
+        Console.WriteLine("druk enter om verder te gaan");
+        Console.ReadLine();
         Console.WriteLine(lijn);
         Console.WriteLine(" *** Uitgeleende Boeken ***");
         Console.WriteLine(lijn);
